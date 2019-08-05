@@ -217,7 +217,7 @@ impl Deserialize for DataSegment {
 		let index = VarUint32::deserialize(reader)?;
 		let offset = InitExpr::deserialize(reader)?;
 		let value_len = u32::from(VarUint32::deserialize(reader)?) as usize;
-		let value_buf = buffered_read!(65536, value_len, reader);
+		let value_buf = buffered_read!(256, value_len, reader);
 
 		Ok(DataSegment {
 			index: index.into(),
@@ -242,7 +242,7 @@ impl Deserialize for DataSegment {
 			Some(InitExpr::deserialize(reader)?)
 		};
 		let value_len = u32::from(VarUint32::deserialize(reader)?) as usize;
-		let value_buf = buffered_read!(65536, value_len, reader);
+		let value_buf = buffered_read!(256, value_len, reader);
 
 		Ok(DataSegment {
 			index: index,
