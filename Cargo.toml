@@ -20,6 +20,8 @@ time = "0.1"
 default = ["std"]
 std = []
 
+reduced-stack-buffer = []
+
 #
 # Features for enabling non-MVP proposals.
 # These features should be tested as part of Travis CI build.
